@@ -11,7 +11,7 @@ enemigo.addEventListener("mouseover", derrota);
 bomba.addEventListener("mouseover", explotar);
 player.addEventListener("mouseover", sumarPuntos);
 
-//Cosas básicas del juego.
+//Utilidades básicas del juego 
 puntos = 0;
 tiempo = 40;
 necesarios= 30;
@@ -31,16 +31,14 @@ document.getElementById("puntos").innerHTML = 'Puntos: <b>' + puntos + "/" + nec
 
 function movimientoBomba(){
     randNumE = Math.round(Math.random()*250);
-    randNum2E = Math.round(Math.random()*250);
     document.getElementById("bomba").style.marginTop =  randNumE + "px"
-    document.getElementById("bomba").style.marginRight =  randNum2E + "px"
+    document.getElementById("bomba").style.marginRight =  randNumE + "px"
 }
 
 function movimientoEnemigo(){
     randNumE = Math.round(Math.random()*250);
-    randNum2E = Math.round(Math.random()*250);
     document.getElementById("enemigo").style.marginTop =  randNumE + "px"
-    document.getElementById("enemigo").style.marginRight =  randNum2E + "px"
+    document.getElementById("enemigo").style.marginRight =  randNumE + "px"
 }
 
 function sumarPuntos(){
@@ -48,9 +46,8 @@ function sumarPuntos(){
     document.getElementById("puntos").innerHTML = 'Points: <b>' + puntos + "/" + necesarios + "</b>";
     document.getElementById("tiempo").innerHTML = 'Time:' + tiempo;
     randNum = Math.round(Math.random()*450);
-    randNum2 = Math.round(Math.random()*450);
     document.getElementById("player").style.marginTop =  randNum + "px"
-    document.getElementById("player").style.marginLeft  =  randNum2 + "px"
+    document.getElementById("player").style.marginLeft  =  randNum + "px"
     nivelDos()
 }
 
@@ -58,7 +55,7 @@ function sumarPuntos(){
 function explotar()  {
  bomba.style.display = "none"
  explosion.style.display = "block" 
- tiempo = tiempo - 5  
+ tiempo -= 5  
  alert("Haz explotado una bomba y perdido 5 segundos.")
 }
 
