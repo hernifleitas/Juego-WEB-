@@ -14,10 +14,10 @@ font-family: sans-serif;
  .contenedor {
      padding: 0px;
      margin: auto;
-     width: 450px;
-     height: 450px;
+     width: 460px;
+     height: 489px;
      background: #ff4245;
-     border:30px dashed rgba(255, 255, 68, 0.575);
+     border:30px ridge #ff4245
 
     }
 
@@ -36,7 +36,7 @@ font-family: sans-serif;
         background-color: rgba(0, 0, 0, 0.801);
         height: 50px;
         margin-top: 15px;
-        width: 500px;
+        width: 510px;
         margin: auto;
         border:5px dashed #ff4245;
         color:white;
@@ -64,44 +64,46 @@ font-family: sans-serif;
     #enemigo {
     width:60px;
     position: absolute;
-    top: 300px;
-    right: 400px;
-    transition: all 0.3s;
+    transition: all 0.5s;
     border-radius: 50%;
     display: none;
+    mix-blend-mode: multiply;
+    background: transparent;
+}
 
+#enemigoDos {
+    width:60px;
+    position: absolute;
+    transition: all 0.5s;
+    border-radius: 50%;
+    display: none;
 }
 
 #bomba {
     border-radius: 50%;
-    width: 30px;
-    top:200px;
-    right: 500px;
+    width: 50px;
     position: absolute;
+    transition: all 0.3s;
+    mix-blend-mode: multiply;
+    background: transparent;
 }
 
 #explosion {
     border-radius: 50%;
-    width: 30px;
+    width: 150px;
     top:200px;
     right: 500px;
     position: absolute;
     display: none;
-}
+    mix-blend-mode: multiply;
+}   
 
-
-    .victorias {
-        padding: 7px;
+  .victorias {
+        padding: 5px;
         background-color: rgba(112, 51, 255, 0.87);
-        margin-top: 520px;
-        margin-left: 150px;
+        margin-left:10px;
         color: rgba(95, 226, 43, 0.918);
-    }
-
-    .footer {
-        background-color: #3412;
-        padding: 52px;
-        margin-bottom: 10px;
+        position: absolute;
     }
 
 
