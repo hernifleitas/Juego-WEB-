@@ -1,107 +1,176 @@
 * {
-padding: 0px;
-margin: 0px;
-font-family: sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    background-color: #352122;
+}
 
- }
-
- body{
-    background-color: rgba(65, 44, 6, 0.178);
+body {
     width: 98%;
     height: 94vh;
- }
+}
 
- .contenedor {
-     padding: 0px;
-     margin: auto;
-     width: 450px;
-     height: 450px;
-     background: #ff4245;
-     border:30px dashed rgba(255, 255, 68, 0.575);
-
-    }
-
-    .player {
-        background-color: rgb(72, 7, 223);
-        border: 4px dashed rgb(129, 85, 187);
-        width: 50px;
-        height: 50px;
-        border-radius: 29%;
-        position: absolute;
-        transition: all 0.3s;
-      
-    }
-
-    .contenedor-pointer {
-        background-color: rgba(0, 0, 0, 0.801);
-        height: 50px;
-        margin-top: 15px;
-        width: 500px;
-        margin: auto;
-        border:5px dashed #ff4245;
-        color:white;
-        font-size: 18px;
-        text-align: center;
-        font-family: serif;
-        padding: 10px 0px;
-      
-    }
-
-    .everything{
-        background-color: #352122;
-        margin-top: 10px;
-        
-    }
-    .contenedor-tiempo {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 50px;
-        background-color: red;
-        
-    }
+img{
+    outline: none;
+    border: none;
+    user-select: none;
+}
 
 
-    #enemigo {
-    width:60px;
+.contenedor {
+    overflow: hidden;
+    padding: 0px;
+    margin: auto;
+    width: 500px;
+    height: 535px;
+    background: #ff4245;
+    border: 30px ridge #ff4245
+}
+
+.player {
+    background-color: rgb(72, 7, 223);
+    border: 4px dashed rgb(129, 85, 187);
+    width: 50px;
+    height: 50px;
+    border-radius: 29%;
     position: absolute;
-    top: 300px;
-    right: 400px;
     transition: all 0.3s;
+
+}
+
+.contenedor-pointer {
+    background-color: rgba(0, 0, 0, 0.801);
+    height: 50px;
+    margin-top: 15px;
+    width: 550px;
+    margin: auto;
+    border: 5px dashed #ff4245;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    font-family: serif;
+    padding: 10px 0px;
+
+}
+
+
+#enemigo {
+    width: 60px;
+    position: absolute;
+    transition: all 0.5s;
     border-radius: 50%;
     display: none;
+    mix-blend-mode: multiply;
+    background: transparent;
+}
 
+#enemigoDos {
+    width: 60px;
+    position: absolute;
+    transition: all 0.5s;
+    border-radius: 50%;
+    display: none;
+    mix-blend-mode: multiply;
+    background: transparent;
 }
 
 #bomba {
     border-radius: 50%;
-    width: 30px;
-    top:200px;
-    right: 500px;
+    width: 50px;
     position: absolute;
+    transition: all 0.3s;
+    mix-blend-mode: multiply;
+    background: transparent;
+    display: none;
 }
 
 #explosion {
     border-radius: 50%;
-    width: 30px;
-    top:200px;
+    width: 150px;
+    top: 200px;
     right: 500px;
     position: absolute;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 0s 1s;
+    mix-blend-mode: multiply;
+}
+
+#explosion.visible {
+    opacity: 1;
+    /* Cuando se haga visible, cambia la opacidad */
+    visibility: visible;
+    /* Cambia a visible */
+    transition: opacity 1s, visibility 0s 0s;
+    /* Sin retraso al ocultar */
+    mix-blend-mode: multiply;
 }
 
 
+.victorias {
+    padding: 5px;
+    background-color: rgba(112, 51, 255, 0.87);
+    margin-left: 10px;
+    color: rgba(95, 226, 43, 0.918);
+    position: absolute;
+}
+
+
+
+/* Media Query para pantallas pequeñas*/
+@media screen and (max-width: 560px) {
+    body{
+        overflow: hidden;
+    }
+    .contenedor {
+        margin-right:500px;
+        width: 94%;
+        height: 100%;
+        border-width: 15px; /* Ajustamos el borde en pantallas muy pequeñas */
+    }
+
+    #explosion {
+        width: 100px; /* La explosión sigue siendo más pequeña en móviles */
+        height: 100px;
+    }
+
+    .contenedor-pointer {
+        font-size: 14px; /* Font-size más pequeño */
+        padding: 5px 0;
+        width: 98%;
+        margin-right: 500px;
+    }
+
     .victorias {
-        padding: 7px;
+        padding: 5px;
         background-color: rgba(112, 51, 255, 0.87);
-        margin-top: 520px;
-        margin-left: 150px;
+        margin-left: 10px;
         color: rgba(95, 226, 43, 0.918);
+        position: relative;
     }
 
-    .footer {
-        background-color: #3412;
-        padding: 52px;
-        margin-bottom: 10px;
+    #explosion {
+        border-radius: 50%;
+        width: 150px;
+        top: 120px;
+        right:160px;
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1s, visibility 0s 1s;
+        mix-blend-mode: multiply;
     }
 
+    #bomba {
+        border-radius: 50%;
+        width:50px;
+        height: 50px;
+        position: absolute;
+        transition: all 0.3s;
+        mix-blend-mode: multiply;
+        background: transparent;
+    }
+    
+    
 
+}
