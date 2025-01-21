@@ -10,11 +10,62 @@ body {
     height: 94vh;
 }
 
+<<<<<<< HEAD
 img{
     outline: none;
     border: none;
     user-select: none;
 }
+=======
+ .contenedor {
+     padding: 0px;
+     margin: auto;
+     width: 460px;
+     height: 489px;
+     background: #ff4245;
+     border:30px ridge #ff4245
+
+    }
+
+    .player {
+        background-color: rgb(72, 7, 223);
+        border: 4px dashed rgb(129, 85, 187);
+        width: 50px;
+        height: 50px;
+        border-radius: 29%;
+        position: absolute;
+        transition: all 0.3s;
+      
+    }
+
+    .contenedor-pointer {
+        background-color: rgba(0, 0, 0, 0.801);
+        height: 50px;
+        margin-top: 15px;
+        width: 510px;
+        margin: auto;
+        border:5px dashed #ff4245;
+        color:white;
+        font-size: 18px;
+        text-align: center;
+        font-family: serif;
+        padding: 10px 0px;
+      
+    }
+
+    .everything{
+        background-color: #352122;
+        margin-top: 10px;
+        
+    }
+    .contenedor-tiempo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+        background-color: red;
+        
+    }
+>>>>>>> de52a0d67a8bde4cdc18b5154ff23fef9d1d66b9
 
 
 .contenedor {
@@ -34,6 +85,7 @@ img{
     height: 50px;
     border-radius: 29%;
     position: absolute;
+<<<<<<< HEAD
     transition: all 0.3s;
 
 }
@@ -57,6 +109,8 @@ img{
 #enemigo {
     width: 60px;
     position: absolute;
+=======
+>>>>>>> de52a0d67a8bde4cdc18b5154ff23fef9d1d66b9
     transition: all 0.5s;
     border-radius: 50%;
     display: none;
@@ -65,13 +119,20 @@ img{
 }
 
 #enemigoDos {
+<<<<<<< HEAD
     width: 60px;
+=======
+    width:60px;
+>>>>>>> de52a0d67a8bde4cdc18b5154ff23fef9d1d66b9
     position: absolute;
     transition: all 0.5s;
     border-radius: 50%;
     display: none;
+<<<<<<< HEAD
     mix-blend-mode: multiply;
     background: transparent;
+=======
+>>>>>>> de52a0d67a8bde4cdc18b5154ff23fef9d1d66b9
 }
 
 #bomba {
@@ -81,12 +142,16 @@ img{
     transition: all 0.3s;
     mix-blend-mode: multiply;
     background: transparent;
+<<<<<<< HEAD
     display: none;
+=======
+>>>>>>> de52a0d67a8bde4cdc18b5154ff23fef9d1d66b9
 }
 
 #explosion {
     border-radius: 50%;
     width: 150px;
+<<<<<<< HEAD
     top: 200px;
     right: 500px;
     position: absolute;
@@ -159,6 +224,21 @@ img{
         visibility: hidden;
         transition: opacity 1s, visibility 0s 1s;
         mix-blend-mode: multiply;
+=======
+    top:200px;
+    right: 500px;
+    position: absolute;
+    display: none;
+    mix-blend-mode: multiply;
+}   
+
+  .victorias {
+        padding: 5px;
+        background-color: rgba(112, 51, 255, 0.87);
+        margin-left:10px;
+        color: rgba(95, 226, 43, 0.918);
+        position: absolute;
+>>>>>>> de52a0d67a8bde4cdc18b5154ff23fef9d1d66b9
     }
 
     #bomba {
