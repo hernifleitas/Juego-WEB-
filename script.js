@@ -28,7 +28,6 @@ enemigo.addEventListener("mouseover", derrota);
 enemigoDos.addEventListener("mouseover", derrota);
 bomba.addEventListener("mouseover", explotar);
 
-<<<<<<< HEAD
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
     player.addEventListener("click", () => {
         reproducirSonido();
