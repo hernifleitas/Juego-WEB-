@@ -27,16 +27,6 @@ function guardarEstadisticas() {
   localStorage.setItem("derrotas", derrotas);
 }
 
-if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-  player.addEventListener("click", () => {
-    reproducirSonido();
-    sumarPuntos();
-  });
-} else {
-  player.addEventListener("mouseover", () => {
-    reproducirSonido();
-    sumarPuntos();
-  });
 
   // Funciones del juego
   function derrota() {
@@ -89,17 +79,20 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
     document.getElementById("enemigoDos").style.marginTop = randNumE2 + "px";
     document.getElementById("enemigoDos").style.marginLeft = randNumX2 + "px";
     //Movimiento MOBILE
+
     if (window.innerWidth <= 560) {
-      randNumE1 = Math.round(Math.random() * 400);
-      randNumX1 = Math.round(Math.random() * 400);
-      randNumE2 = Math.round(Math.random() * 230);
-      randNumX2 = Math.round(Math.random() * 230);
+      //ENEMIGO
+      randNumE1 = Math.round(Math.random() * (window.innerWidth - 50));
+      randNumX1 = Math.round(Math.random() * (window.innerHeight - 50));
+      randNumE2 = Math.round(Math.random() * (window.innerWidth - 50));
+      randNumX2 = Math.round(Math.random() * (window.innerHeight - 50));
       document.getElementById("enemigo").style.marginBottom = randNumE1 + "px";
       document.getElementById("enemigo").style.marginRight = randNumX1 + "px";
       document.getElementById("enemigoDos").style.marginBottom =
         randNumE2 + "px";
       document.getElementById("enemigoDos").style.marginRight =
         randNumX2 + "px";
+
     }
  };
 
@@ -129,13 +122,6 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
       document.getElementById("player").style.marginTop = randNumX + "px";
       document.getElementById("player").style.marginLeft = randNum + "px";
 
-      //Movimiento MOBILE
-      if (window.innerWidth <= 560) {
-        randNum = Math.round(Math.random() * 230);
-        randNumX = Math.round(Math.random() * 230);
-        document.getElementById("player").style.marginBottom = randNumX + "px";
-        document.getElementById("player").style.marginRight = randNum + "px";
-      }
       actualizarNivel();
       if (tiempo <= 30 && !bombaVisible) {
         bomba.style.display = "block";
@@ -145,6 +131,14 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
       randNumX = Math.round(Math.random() * 450);
       document.getElementById("player").style.marginTop = randNumX + "px";
       document.getElementById("player").style.marginLeft = randNum + "px";
+
+      if(window.innerWidth<=560){
+      // MOVIMIENTO PLAYER MOBILE 
+      randNum = Math.round(Math.random()  * (window.innerWidth -200));
+      randNumX = Math.round(Math.random() * (window.innerHeight -200));
+      document.getElementById("player").style.marginTop = randNumX + "px";
+      document.getElementById("player").style.marginLeft = randNum + "px";
+      }
       actualizarNivel();
     }
 
@@ -189,11 +183,11 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
     function explotar() {
       soundExplosion.play();
       bomba.style.display = "none";
-      explosion.style.transition = "opacity 1s"; // Transición.
+      explosion.style.transition = "opacity 1s";
       explosion.classList.add("visible");
       tiempo -= 5;
       setTimeout(() => {
-        explosion.classList.remove("visible"); // Oculta después de 1 segundos
+        explosion.classList.remove("visible"); 
       }, 1000);
     }
 
@@ -208,8 +202,8 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
       }).then((result) => {
         if (result.isConfirmed) {
           enemigo.style.display = "block";
-          puntos = 0; // Reinicia los puntos al iniciar el nivel 2
-          document.getElementById("puntos").innerHTML = "Points: " + puntos; // Actualiza inmediatamente la interfaz
+          puntos = 0; 
+          document.getElementById("puntos").innerHTML = "Points: " + puntos; 
           tiempo = 40;
           necesarios = 60;
           victoria++;
@@ -221,8 +215,8 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
     function nivelTres() {
       enemigo.style.display = "block";
       enemigoDos.style.display = "block";
-      puntos = 0; // Reinicia los puntos al iniciar el nivel 2
-      document.getElementById("puntos").innerHTML = "Points: " + puntos; // Actualiza inmediatamente la interfaz
+      puntos = 0; 
+      document.getElementById("puntos").innerHTML = "Points: " + puntos;
       tiempo = 60;
       necesarios = 80;
       victoria++;
@@ -256,7 +250,6 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
       alert(`Tienes: ${victoria} victorias y ${derrotas} derrotas.`);
     });
 
-    // Actualizar las estadísticas cada vez que el juego termina
     setInterval(restarTiempo, 1000);
     setInterval(movimientoEnemigo, 450);
     setInterval(movimientoBomba, 450);
@@ -271,12 +264,26 @@ if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
       location.reload();
       derrotas++;
     }
-  }
+  
   victorias.addEventListener("click", () => {
     alert(`Tienes: ${victoria} victorias y ${derrotas} derrotas.`);
   });
-  
-  // Ejecutando funciones
+
+
+  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+    player.addEventListener("click", (e) => {
+      e.preventDefault()
+      reproducirSonido();
+      sumarPuntos();
+    });
+  } else {
+    player.addEventListener("mouseover", () => {
+      reproducirSonido();
+      sumarPuntos();
+    });
+
+   }
+
 enemigo.addEventListener("mouseover", derrota);
 enemigoDos.addEventListener("mouseover", derrota);
 bomba.addEventListener("mouseover", explotar);
